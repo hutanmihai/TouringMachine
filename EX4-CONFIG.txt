@@ -1,3 +1,10 @@
+AUTORI:
+Hutan Mihai-Alexandru - grupa 143
+Totolici Alexandru-Gabriel - grupa 143
+Stanciu Ioan Carol - grupa 143
+
+ACEST CONFIG FILE RECUNOASTE LIMBAJE DE FORMA L = { w#w | w apartine {a,b}}
+
 States:
 q0 start
 q1
@@ -12,14 +19,14 @@ qReject final
 End
 
 Sigma:
-0
-1
+a
+b
 #
 End
 
 Gamma:
-0
-1
+a
+b
 #
 x
 _
@@ -29,24 +36,24 @@ Transitions:
 q0 # q7 # R
 q7 x q7 x R
 q7 _ qAccept _ R
-q0 1 q2 x R
-q2 0 q2 0 R
-q2 1 q2 1 R
+q0 b q2 x R
+q2 a q2 a R
+q2 b q2 b R
 q2 # q4 # R
 q4 x q4 x R
-q4 1 q5 x L
-q0 0 q1 x R
-q1 0 q1 0 R
-q1 1 q1 1 R
+q4 b q5 x L
+q0 a q1 x R
+q1 a q1 a R
+q1 b q1 b R
 q1 # q3 # R
 q3 x q3 x R
-q3 0 q5 x L
-q5 0 q5 0 L
-q5 1 q5 1 L
+q3 a q5 x L
+q5 a q5 a L
+q5 b q5 b L
 q5 x q5 x L
 q5 # q6 # L
-q6 0 q6 0 L
-q6 1 q6 1 L
+q6 a q6 a L
+q6 b q6 b L
 q6 x q0 x R
 q4 # qReject # R
 q0 _ qReject _ R
@@ -58,11 +65,11 @@ q5 _ qReject _ R
 q6 _ qReject _ R
 q0 x qReject x R
 q7 # qReject # R
-q7 1 qReject 1 R
-q7 0 qReject 0 R
-q3 1 qReject 1 R
+q7 b qReject b R
+q7 a qReject a R
+q3 b qReject b R
 q3 # qReject # R
-q4 0 qReject 0 R
+q4 a qReject a R
 q4 # qReject # R
 q6 # qReject # R
 End

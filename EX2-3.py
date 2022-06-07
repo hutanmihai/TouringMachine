@@ -71,6 +71,10 @@ def validation_and_load(fisier):  # fisier = numele fisierului pe care vrem sa-l
     gamma = get_part('gamma', templist)  # generam o lista de simboluri din alfabetul gamma
     transitions = get_part('transitions', templist)  # generam lista tranzitiilor
 
+    for x in sigma:  # verificam daca toate simbolurile din sigma se afla si in gamma
+        if x not in gamma:
+            return 1, 1, 1, 1, 1, 1
+
     if len(tempstates) == 0 or len(sigma) == 0 or len(gamma) == 0 or len(transitions) == 0:
         print('Invalid!')  # daca cel putin o lista se intoarce goala atunci afisam invalid
         return 1, 1, 1, 1, 1, 1
@@ -150,9 +154,9 @@ def simulator(user_input, start_state, final_states, transitions):
             return
 
 
-# states, sigma, gamma, transitions, start_state, final_states = validation_and_load(sys.argv[1])
+states, sigma, gamma, transitions, start_state, final_states = validation_and_load(sys.argv[1])
 # states, sigma, gamma, transitions, start_state, final_states = validation_and_load('EX2-3-CONFIG.txt')
-states, sigma, gamma, transitions, start_state, final_states = validation_and_load('EX4-CONFIG.txt')
+# states, sigma, gamma, transitions, start_state, final_states = validation_and_load('EX4-CONFIG.txt')
 if [states, sigma, gamma, transitions, start_state, final_states] != [1, 1, 1, 1, 1, 1]:
     # daca ar fi fost egale ar fi insemnat ca fisierul de config este invalid, deci nu avea rost citirea unui input
     user_input = input("INPUT: ")
