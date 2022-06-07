@@ -1,0 +1,68 @@
+States:
+q0 start
+q1
+q2
+q3
+q4
+q5
+q6
+q7
+qAccept final
+qReject final
+End
+
+Sigma:
+0
+1
+#
+End
+
+Gamma:
+0
+1
+#
+x
+_
+End
+
+Transitions:
+q0 # q7 # R
+q7 x q7 x R
+q7 _ qAccept _ R
+q0 1 q2 x R
+q2 0 q2 0 R
+q2 1 q2 1 R
+q2 # q4 # R
+q4 x q4 x R
+q4 1 q5 x L
+q0 0 q1 x R
+q1 0 q1 0 R
+q1 1 q1 1 R
+q1 # q3 # R
+q3 x q3 x R
+q3 0 q5 x L
+q5 0 q5 0 L
+q5 1 q5 1 L
+q5 x q5 x L
+q5 # q6 # L
+q6 0 q6 0 L
+q6 1 q6 1 L
+q6 x q0 x R
+q4 # qReject # R
+q0 _ qReject _ R
+q1 _ qReject _ R
+q2 _ qReject _ R
+q3 _ qReject _ R
+q4 _ qReject _ R
+q5 _ qReject _ R
+q6 _ qReject _ R
+q0 x qReject x R
+q7 # qReject # R
+q7 1 qReject 1 R
+q7 0 qReject 0 R
+q3 1 qReject 1 R
+q3 # qReject # R
+q4 0 qReject 0 R
+q4 # qReject # R
+q6 # qReject # R
+End
